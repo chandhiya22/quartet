@@ -51,8 +51,8 @@ jobs:
       # Step 4: Build and push Docker image to AWS ECR
       - name: Build and Push Docker image
         run: |
-          docker build -t quartet1 .
-          docker tag quartet1:latest 961341543490.dkr.ecr.us-east-1.amazonaws.com/quartet:latest
+          docker build -t quartet .
+          docker tag quartet:latest 961341543490.dkr.ecr.us-east-1.amazonaws.com/quartet:latest
           docker push 961341543490.dkr.ecr.us-east-1.amazonaws.com/quartet1:latest
 
   # Continuous Deployment
