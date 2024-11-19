@@ -53,7 +53,7 @@ jobs:
         run: |
           docker build -t quartet .
           docker tag quartet:latest 961341543490.dkr.ecr.us-east-1.amazonaws.com/quartet:latest
-          docker push 961341543490.dkr.ecr.us-east-1.amazonaws.com/quartet1:latest
+          docker push 961341543490.dkr.ecr.us-east-1.amazonaws.com/quartet:latest
 
   # Continuous Deployment
   deploy_to_ec2:
@@ -100,7 +100,7 @@ jobs:
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 961341543490.dkr.ecr.us-east-1.amazonaws.com
             
             # Pull the Docker image from ECR
-            docker pull 961341543490.dkr.ecr.us-east-1.amazonaws.com/quartet1:latest
+            docker pull 961341543490.dkr.ecr.us-east-1.amazonaws.com/quartet:latest
 
             # Run the Docker container on EC2
             docker run -d -p 8080:8080 961341543490.dkr.ecr.us-east-1.amazonaws.com/quartet1:latest
